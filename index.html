@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiệm Bánh Bí Mật Của Chi • 26/11/2002</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=13.0" />
+  <script src="libs/gsap.min.js"></script>
+  <script src="libs/konva.min.js"></script>
+  <script src="libs/confetti.browser.min.js"></script>
+</head>
+<body>
+  <!-- Luminous Mint & White Atmospheric Backdrop -->
+  <div class="mint-backdrop" aria-hidden="true">
+    <div class="mint-orb orb-1"></div>
+    <div class="mint-orb orb-2"></div>
+    <div class="mint-orb orb-3"></div>
+    <div class="mint-silk-sheen"></div>
+  </div>
+  <canvas id="ambient-particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="burst-particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Cinematic Multi-Style Scene Transition Curtain -->
+  <div id="scene-transition-veil" aria-hidden="true">
+    <div class="veil-emblem">
+      <div class="veil-ring"></div>
+      <span>Yêu em ❤️</span>
+    </div>
+  </div>
+
+  <!-- Minimalist Floating Top HUD -->
+  <header class="mint-hud">
+    <div class="hud-brand">
+      <span class="hud-badge">CHI · 24</span>
+      <span class="hud-date">26 · 11 · 2002</span>
+    </div>
+
+    <nav class="hud-stepper" aria-label="Hành trình">
+      <button class="step-pill active" data-step="1"><span class="step-dot"></span><span>Lời Mời</span></button>
+      <button class="step-pill" data-step="2"><span class="step-dot"></span><span>Tạo Bánh</span></button>
+      <button class="step-pill" data-step="3"><span class="step-dot"></span><span>Thắp Nến</span></button>
+      <button class="step-pill" data-step="4"><span class="step-dot"></span><span>Bức Thư</span></button>
+    </nav>
+
+    <div class="hud-controls">
+      <button id="btn-toggle-music" class="hud-icon-btn" title="Bật/Tắt nhạc nền">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+        </svg>
+        <span class="hud-btn-label">Piano: Bật</span>
+      </button>
+      <button id="btn-quick-night" class="hud-icon-btn" title="Chế độ Ngày / Đêm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       CHƯƠNG 1: MINT & WHITE EDITORIAL INVITATION
+       ======================================================================= -->
+  <section id="chapter-1" class="screen-chapter active">
+    <div class="inv-card glass-mint-card" id="inv-tilt-card">
+      <div class="inv-halo" aria-hidden="true"></div>
+      <!-- Delicate Botanical Corner Filigree -->
+      <svg class="corner-ornament tl" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+      <svg class="corner-ornament tr" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+      <svg class="corner-ornament bl" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+      <svg class="corner-ornament br" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+
+      <!-- Refined Mini Monogram Crest -->
+      <div class="inv-crest-mini" aria-hidden="true">
+        <svg width="64" height="64" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="36" fill="none" stroke="#c8a464" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle cx="40" cy="40" r="30" fill="rgba(52,181,147,0.08)" stroke="#34b593" stroke-width="1"/>
+          <path d="M28,28 L33,34 L40,24 L47,34 L52,28 L50,39 L30,39 Z" fill="#c8a464"/>
+          <text x="40" y="55" font-family="Playfair Display, Georgia, serif" font-size="13" font-weight="700" fill="#15382e" text-anchor="middle" letter-spacing="1.5">CHI</text>
+        </svg>
+      </div>
+
+      <p class="inv-eyebrow">26 · 11 · 2002 &nbsp;•&nbsp; DÀNH RIÊNG CHO CHI</p>
+      <h1 class="inv-title" id="inv-hero-title">Tiệm Bánh Bí Mật Của Chi</h1>
+      <p class="inv-subtitle">Kỷ Niệm Sinh Nhật Tuổi 24</p>
+      <div class="inv-rule" aria-hidden="true"></div>
+      <p class="inv-quote">
+        “Hôm nay tiệm bánh bí mật này chỉ mở cửa phục vụ duy nhất một vị khách đặc biệt nhất của chồng.
+        Em hãy tự tay nhào nặn và trang trí chiếc bánh sinh nhật tuổi 24 theo đúng sở thích của riêng mình nhé!”
+      </p>
+      <div class="inv-cta-wrap">
+        <button id="btn-start-baking" class="mint-cta-btn">
+          <span class="btn-shimmer"></span>
+          <span>Bắt đầu vào bếp</span>
+          <span class="cta-star">✦</span>
+        </button>
+      </div>
+      <p class="inv-hint">Quà tặng đặc biệt chồng dành riêng cho em</p>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       CHƯƠNG 2: FULL-BLEED MORPHING ATELIER
+       ======================================================================= -->
+  <section id="chapter-2" class="screen-chapter">
+    <div class="atelier-stage stage-viewport bg-mint" id="stage-wrapper">
+      <div class="stage-spotlight" aria-hidden="true"></div>
+      <div id="konva-container"></div>
+      <canvas id="piping-canvas"></canvas>
+      <div class="stage-grid-overlay" id="alignment-grid" aria-hidden="true">
+        <div class="crosshair-h"></div>
+        <div class="crosshair-v"></div>
+        <div class="crosshair-circle"></div>
+      </div>
+    </div>
+
+    <!-- Floating Top-Left Pill -->
+    <div class="atelier-float-tl glass-pill">
+      <div class="cake-summary-chip">
+        <span class="chip-dot"></span>
+        <span id="cake-summary-text">Bánh Tròn 1 Tầng • Vani Kem Bơ</span>
+      </div>
+      <span class="pill-sep"></span>
+      <div class="bg-presets">
+        <button class="table-pill active" data-bg="mint">Mint Sáng</button>
+        <button class="table-pill" data-bg="wood">Gỗ Ấm</button>
+        <button class="table-pill" data-bg="night">Đêm Tiệc</button>
+      </div>
+      <span class="pill-sep"></span>
+      <label class="lux-switch-mini" title="Bật/tắt lưới căn giữa">
+        <input type="checkbox" id="chk-guidelines" />
+        <span class="switch-dot"></span>
+        <span>Lưới</span>
+      </label>
+    </div>
+
+    <!-- Floating Top-Right Pill + Finish CTA -->
+    <div class="atelier-float-tr">
+      <div class="glass-pill mini-actions-pill">
+        <button id="btn-undo" class="pill-icon-btn" title="Hoàn tác (Ctrl+Z)">↶</button>
+        <button id="btn-redo" class="pill-icon-btn" title="Làm lại (Ctrl+Y)">↷</button>
+        <button id="btn-clear-toppings" class="pill-icon-btn" title="Xóa hết Topping">✕</button>
+        <button id="btn-reset-cake" class="pill-icon-btn danger" title="Làm lại từ đầu">↺</button>
+      </div>
+      <button id="btn-finish-and-light" class="mint-cta-btn primary-finish">
+        <span class="btn-shimmer"></span>
+        <span>Hoàn thành &amp; Thắp nến</span>
+        <span class="cta-star">✦</span>
+      </button>
+    </div>
+
+    <!-- Contextual Selection Pill -->
+    <div class="selection-float-pill glass-pill" id="selected-item-info">
+      <span class="selection-tag">Đang chọn</span>
+      <span class="pill-sep"></span>
+      <button id="btn-rotate-left" class="sel-btn" title="Xoay trái">↺ 15°</button>
+      <button id="btn-rotate-right" class="sel-btn" title="Xoay phải">↻ 15°</button>
+      <button id="btn-scale-up" class="sel-btn" title="Phóng to">＋</button>
+      <button id="btn-scale-down" class="sel-btn" title="Thu nhỏ">－</button>
+      <button id="btn-flip-h" class="sel-btn" title="Lật ngang">↔</button>
+      <button id="btn-bring-forward" class="sel-btn" title="Lên trên">↑</button>
+      <button id="btn-send-backward" class="sel-btn" title="Xuống dưới">↓</button>
+      <button id="btn-delete-item" class="sel-btn danger" title="Xóa món">Xóa</button>
+    </div>
+
+    <!-- Morphing Bottom Floating Dock + Expandable Glass Tray -->
+    <div class="morph-dock-wrap">
+      <div class="morph-tray glass-mint-card" id="morph-tray">
+        <!-- TAB 1 -->
+        <div id="tab-base" class="tab-pane active">
+          <div class="tray-cols">
+            <div class="tray-col">
+              <h4 class="panel-label">Kiểu Dáng Bánh</h4>
+              <div class="shapes-grid chip-grid">
+                <button class="picker-card active" data-shape="round-1">Tròn 1 Tầng</button>
+                <button class="picker-card" data-shape="round-2">Tròn 2 Tầng</button>
+                <button class="picker-card" data-shape="round-3">Tròn 3 Tầng</button>
+                <button class="picker-card" data-shape="heart">Trái Tim</button>
+                <button class="picker-card" data-shape="square">Vuông</button>
+                <button class="picker-card" data-shape="bento">Bento Mini</button>
+              </div>
+            </div>
+            <div class="tray-col">
+              <h4 class="panel-label">Đế &amp; Đĩa Bánh</h4>
+              <div class="plates-grid chip-grid">
+                <button class="picker-card active" data-plate="white-gold">Sứ Viền Vàng</button>
+                <button class="picker-card" data-plate="wood">Đế Gỗ Mộc</button>
+                <button class="picker-card" data-plate="glass">Thủy Tinh</button>
+                <button class="picker-card" data-plate="pink-pastel">Hồng Pastel</button>
+              </div>
+            </div>
+            <div class="tray-col">
+              <h4 class="panel-label">Vị &amp; Màu Cốt Bánh</h4>
+              <div class="swatch-row">
+                <button class="flavor-circle active" data-color="#fff8f0" data-flavor="Vani Kem Bơ" style="background:#fff8f0" title="Vani Kem Bơ"></button>
+                <button class="flavor-circle" data-color="#ffc2d1" data-flavor="Dâu Pastel" style="background:#ffc2d1" title="Dâu Pastel"></button>
+                <button class="flavor-circle" data-color="#cdb4db" data-flavor="Khoai Môn" style="background:#cdb4db" title="Khoai Môn"></button>
+                <button class="flavor-circle" data-color="#a8e6cf" data-flavor="Bạc Hà Mint" style="background:#a8e6cf" title="Bạc Hà Mint"></button>
+                <button class="flavor-circle" data-color="#5c3a21" data-flavor="Socola Đen" style="background:#5c3a21" title="Socola Đen"></button>
+                <button class="flavor-circle" data-color="#a4133c" data-flavor="Red Velvet" style="background:#a4133c" title="Red Velvet"></button>
+                <label class="color-picker-chip" title="Chọn màu tự do">
+                  <input type="color" id="cake-custom-color" value="#fff8f0" />
+                  <span>Tự chọn</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2 -->
+        <div id="tab-frosting" class="tab-pane">
+          <div class="tray-cols">
+            <div class="tray-col">
+              <h4 class="panel-label">Bề Mặt Kem</h4>
+              <div class="frosting-grid chip-grid">
+                <button class="picker-card active" data-texture="smooth">Láng Mịn</button>
+                <button class="picker-card" data-texture="swirl">Vân Xoắn Ốc</button>
+                <button class="picker-card" data-texture="watercolor">Loang 2 Tông</button>
+                <button class="picker-card" data-texture="glitter">Nhũ Vàng</button>
+              </div>
+            </div>
+            <div class="tray-col">
+              <h4 class="panel-label">Sốt Chảy Viền Bánh</h4>
+              <div class="drip-pills">
+                <button class="drip-pill active" data-drip="none" data-drip-color="">Không Sốt</button>
+                <button class="drip-pill" data-drip="dark-choco" data-drip-color="#3d2314">Socola Đen</button>
+                <button class="drip-pill" data-drip="strawberry" data-drip-color="#ff758f">Sốt Dâu</button>
+                <button class="drip-pill" data-drip="white-choco" data-drip-color="#fff3e0">Socola Trắng</button>
+                <button class="drip-pill" data-drip="caramel" data-drip-color="#c68b3e">Caramel</button>
+                <button class="drip-pill" data-drip="matcha" data-drip-color="#7a9a5b">Matcha</button>
+              </div>
+            </div>
+            <div class="tray-col">
+              <div class="slider-header">
+                <h4 class="panel-label">Độ Dài Dòng Chảy</h4>
+                <span id="drip-length-val" class="slider-val">26px</span>
+              </div>
+              <input type="range" id="drip-slider" class="lux-slider" min="10" max="54" value="26" />
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3 -->
+        <div id="tab-piping" class="tab-pane">
+          <div class="tray-cols">
+            <div class="tray-col">
+              <h4 class="panel-label">Đầu Đui Phun Kem</h4>
+              <div class="piping-tips-grid">
+                <button class="tip-luxury-card active" data-tip="round">Đui Tròn</button>
+                <button class="tip-luxury-card" data-tip="star">Đui Sao 3D</button>
+                <button class="tip-luxury-card" data-tip="lambeth">Bèo Nhún</button>
+              </div>
+              <p class="panel-note">Kéo chuột trực tiếp lên mặt bánh để vẽ hoặc viết chữ.</p>
+            </div>
+            <div class="tray-col">
+              <h4 class="panel-label">Màu &amp; Cỡ Đầu Đui</h4>
+              <div class="swatch-row">
+                <button class="piping-dot active" data-color="#ffffff" style="background:#ffffff" title="Trắng"></button>
+                <button class="piping-dot" data-color="#6dd5b4" style="background:#6dd5b4" title="Xanh Mint"></button>
+                <button class="piping-dot" data-color="#ffb3c6" style="background:#ffb3c6" title="Hồng Pastel"></button>
+                <button class="piping-dot" data-color="#d4af37" style="background:#d4af37" title="Vàng Kim"></button>
+                <button class="piping-dot" data-color="#5c3a21" style="background:#5c3a21" title="Socola"></button>
+                <label class="color-picker-chip">
+                  <input type="color" id="piping-custom-color" value="#ffffff" />
+                  <span>Tự chọn</span>
+                </label>
+              </div>
+              <div class="slider-header mt-xs">
+                <span class="panel-note">Kích thước:</span>
+                <span id="piping-size-val" class="slider-val">16px</span>
+              </div>
+              <input type="range" id="piping-size-slider" class="lux-slider" min="6" max="32" value="16" />
+            </div>
+            <div class="tray-col action-stack">
+              <h4 class="panel-label">Thao Tác Nhanh</h4>
+              <button id="btn-auto-piping-border" class="lux-btn-secondary">✦ Tự động bắt viền hoa</button>
+              <button id="btn-clear-piping" class="lux-btn-ghost danger">Xóa nét vẽ tay</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4 -->
+        <div id="tab-toppings" class="tab-pane">
+          <div class="tray-cols toppings-layout">
+            <div class="tray-col wide">
+              <div class="toppings-header-row">
+                <h4 class="panel-label">Kho Topping</h4>
+                <div class="toppings-sub-categories">
+                  <button class="cat-pill active" data-category="fruits">Hoa Quả</button>
+                  <button class="cat-pill" data-category="sweets">Bánh &amp; Hoa</button>
+                  <button class="cat-pill" data-category="signs">Bảng Chữ</button>
+                </div>
+              </div>
+              <div id="toppings-list" class="toppings-horiz-grid"></div>
+            </div>
+            <div class="tray-col">
+              <h4 class="panel-label">Topper Ảnh Cá Nhân</h4>
+              <div class="photo-frames-row">
+                <button class="frame-choice active" data-frame="round-gold">Tròn Vàng</button>
+                <button class="frame-choice" data-frame="heart-ribbon">Trái Tim</button>
+                <button class="frame-choice" data-frame="polaroid">Polaroid</button>
+              </div>
+              <button id="btn-upload-photo" class="lux-btn-secondary mt-xs">Tải ảnh từ máy tính</button>
+              <input type="file" id="file-photo-input" accept="image/*" hidden />
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5 -->
+        <div id="tab-candles" class="tab-pane">
+          <div class="tray-cols">
+            <div class="tray-col wide">
+              <h4 class="panel-label">Chọn Nến Sinh Nhật</h4>
+              <div id="candles-list" class="candles-horiz-grid"></div>
+            </div>
+            <div class="tray-col action-stack">
+              <h4 class="panel-label">Sắp Xếp Nhanh</h4>
+              <button id="btn-quick-plant-24" class="lux-btn-secondary">✦ Cắm Nến Số 24 Chính Tâm</button>
+              <button id="btn-quick-plant-circle" class="lux-btn-secondary">Cắm Vòng Nến Quanh Bánh</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="morph-dock-bar glass-pill" role="tablist">
+        <button class="nav-tab-item active" data-tab="tab-base">Cốt &amp; Đế</button>
+        <button class="nav-tab-item" data-tab="tab-frosting">Kem &amp; Sốt</button>
+        <button class="nav-tab-item" data-tab="tab-piping">Bắt Kem</button>
+        <button class="nav-tab-item" data-tab="tab-toppings">Topping</button>
+        <button class="nav-tab-item" data-tab="tab-candles">Nến</button>
+        <span class="pill-sep"></span>
+        <button id="btn-toggle-tray" class="tray-toggle-btn" title="Thu gọn / Mở khay công cụ">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       CHƯƠNG 3: NGHI LỄ THỔI NẾN & ĐIỀU ƯỚC
+       ======================================================================= -->
+  <section id="chapter-3" class="screen-chapter">
+    <div class="ceremony-container">
+      <div class="ceremony-cake-box glass-mint-card dark-night-card">
+        <canvas id="night-cake-canvas" width="520" height="460"></canvas>
+      </div>
+
+      <div class="ceremony-control-card glass-mint-card dark-night-card">
+        <header class="ceremony-header">
+          <p class="ceremony-eyebrow">NGHI LỄ TUỔI 24</p>
+          <h2 class="ceremony-heading">Thắp Nến &amp; Ước Nguyện</h2>
+        </header>
+
+        <div class="vinyl-music-box">
+          <div class="vinyl-disc-wrap">
+            <div id="vinyl-disc" class="spinning"><div class="vinyl-label"></div></div>
+          </div>
+          <div class="vinyl-meta">
+            <div class="track-row">
+              <span id="song-status-text">Đang tấu khúc nhạc mừng sinh nhật...</span>
+              <span id="song-countdown-text">21s</span>
+            </div>
+            <div class="song-progress-bar"><div id="song-progress-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="ceremony-blow-phase locked" id="ceremony-blow-phase">
+          <p id="blow-instruction-text" class="ceremony-quote">
+            “Nhắm mắt ước một điều thật đẹp cho tuổi 24 của em nhé... Sau đó thổi thật mạnh vào Micro hoặc nhấn phím Space để thổi tắt nến nào!”
+          </p>
+          <div class="blow-wind-gauge">
+            <span>Mức gió</span>
+            <div class="gauge-track"><div id="wind-gauge-fill" class="gauge-fill"></div></div>
+            <span id="wind-gauge-percent" class="gauge-percent">0%</span>
+          </div>
+          <p id="mic-status-text" class="mic-status">Micro sẽ mở khóa ngay sau khi nghe hết bài hát...</p>
+          <button id="btn-blow-candle-manual" class="mint-cta-btn full-width locked" disabled>
+            <span class="btn-blow-icon">🔒</span>
+            <span id="btn-blow-text">Đang nghe nhạc... Vui lòng chờ</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       CHƯƠNG 4: PHONG BÌ -> LÁ THƯ LIỀN MẠCH -> GOLDEN VOUCHER
+       ======================================================================= -->
+  <section id="chapter-4" class="screen-chapter">
+    <!-- Step 4.1: Mint & Pearl Envelope -->
+    <div id="ch4-step-envelope" class="ch4-stage active">
+      <div class="envelope-wrapper" id="velvet-envelope">
+        <div class="envelope-back"></div>
+        <div class="envelope-letter-peek"><span>Gửi bé iuu của chồng...</span></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <button id="btn-open-envelope" class="wax-seal-btn" title="Nhấn để mở thư">
+          <span class="wax-ring"></span>
+          <span class="wax-monogram">CHI</span>
+          <small>26·11</small>
+        </button>
+      </div>
+      <p class="envelope-prompt">Chạm vào con dấu để mở bức thư của chồng ✦</p>
+    </div>
+
+    <!-- Step 4.2: Continuous Full Letter -->
+    <div id="ch4-step-letter" class="ch4-stage">
+      <article class="luxury-letter-card glass-mint-card">
+        <svg class="corner-ornament tl" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+        <svg class="corner-ornament tr" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+        <svg class="corner-ornament bl" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+        <svg class="corner-ornament br" viewBox="0 0 80 80" aria-hidden="true"><path d="M4,76 L4,16 Q4,4 16,4 L76,4 M14,52 Q14,14 52,14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="14" r="2.2" fill="currentColor"/></svg>
+
+        <header class="letter-header">
+          <div class="letter-postage-stamp" aria-hidden="true">
+            <span>26.11</span>
+            <small>2002</small>
+          </div>
+          <p class="letter-eyebrow">26 · 11 · 2002 &nbsp;•&nbsp; TUỔI 24</p>
+          <h2 class="letter-title">Chúc Mừng Sinh Nhật Chi Tuổi 24 🎂</h2>
+        </header>
+
+        <div class="letter-body-continuous">
+          <p class="letter-salutation">Gửi bé iuu của chồng,</p>
+          <p class="letter-text">
+            Chúc mừng ngày 26/11 thật đặc biệt của em. Bước sang tuổi 24, chồng mong em luôn giữ được nụ cười rạng rỡ, sự bình yên trong lòng và thật nhiều niềm vui trong từng ngày trôi qua.
+          </p>
+          <p class="letter-text">
+            Cảm ơn em vì đã luôn nhẹ nhàng, kiên nhẫn và đồng hành cùng chồng. Dù có những lúc bận rộn hay cách xa, chỉ cần nghĩ đến em là mọi mệt mỏi của chồng đều dịu lại. Mong rằng tuổi mới sẽ mang đến cho em thật nhiều sức khỏe, những điều may mắn nhất và mọi dự định em ấp ủ đều trở thành hiện thực.
+          </p>
+          <p class="letter-text">
+            Chồng sẽ luôn ở đây, lắng nghe và đồng hành cùng em trên mọi chặng đường phía trước.
+          </p>
+          <div class="letter-signature">
+            <p class="sig-closing">Thương em rất nhiều,</p>
+            <p class="sig-name">Thuận.</p>
+          </div>
+        </div>
+
+        <footer class="letter-nav-footer single-cta">
+          <button id="btn-open-keepsake" class="mint-cta-btn">
+            <span class="btn-shimmer"></span>
+            <span>Mở món quà cuối cùng</span>
+            <span class="cta-star">✦</span>
+          </button>
+        </footer>
+      </article>
+    </div>
+
+    <!-- Step 4.25: Blooming Flower -> Concentric Starlight Rings (VELVET Finale) -->
+    <div id="ch4-step-flower" class="ch4-stage">
+      <div class="flower-wish-stage">
+        <div class="finale-halo" aria-hidden="true"></div>
+        <div class="finale-ring" aria-hidden="true"></div>
+        <div class="finale-ring finale-ring--inner" aria-hidden="true"></div>
+
+        <button id="btn-bloom-flower" class="finale-flower-btn" title="Chạm vào bông hoa để nhận điều ước">
+          <svg id="mint-flower-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"></svg>
+        </button>
+
+        <p class="flower-wish-eyebrow">CHỈ DÀNH CHO EM</p>
+        <h3 class="flower-wish-title">Chạm vào bông hoa để mở điều ước tuổi 24</h3>
+        <p class="flower-wish-hint">Bông hoa sẽ nở thành vòng tròn ánh sao dành riêng cho Chi ✦</p>
+      </div>
+    </div>
+
+    <!-- Step 4.3: Keepsake Showcase & Golden Voucher -->
+    <div id="ch4-step-voucher" class="ch4-stage">
+      <div class="keepsake-showcase glass-mint-card">
+        <div class="keepsake-left">
+          <div class="keepsake-frame">
+            <img id="keepsake-cake-preview" alt="Chiếc bánh sinh nhật của Chi" />
+            <div class="keepsake-caption">Thiết kế bởi Chi (26/11/2002) • Quà tặng từ chồng Thuận ❤️</div>
+          </div>
+        </div>
+
+        <div class="keepsake-right">
+          <p class="letter-eyebrow">MÓN QUÀ ĐẶC BIỆT CUỐI CÙNG</p>
+          <h3 class="keepsake-heading">Đặc Quyền Sinh Nhật Tuổi 24</h3>
+
+          <div class="golden-voucher">
+            <div class="voucher-shimmer"></div>
+            <div class="voucher-tag">GOLDEN VIP VOUCHER • VÔ THỜI HẠN</div>
+            <h4 class="voucher-heading">🎟️ PHIẾU ĐỔI BÁNH SINH NHẬT THẬT</h4>
+            <p class="voucher-desc">
+              Hãy bấm nút <strong>Lưu Ảnh Chiếc Bánh</strong> bên dưới và gửi cho chồng — chồng sẽ hiện thực hóa chiếc bánh y hệt như em vừa trang trí ngoài đời thật!
+            </p>
+          </div>
+
+          <div class="letter-actions">
+            <button id="btn-save-cake-image" class="mint-cta-btn full-width">
+              <span class="btn-shimmer"></span>
+              <span>Lưu Ảnh Chiếc Bánh (.PNG)</span>
+              <span class="cta-star">✦</span>
+            </button>
+            <button id="btn-open-secret" class="btn-secret-spark full-width">
+              <span>✦ Mở bí mật nhỏ cuối cùng của chồng</span>
+            </button>
+            <div class="secondary-actions-3">
+              <button id="btn-back-to-letter" class="lux-btn-ghost">Đọc lại thư</button>
+              <button id="btn-re-edit-cake" class="lux-btn-ghost">Trang trí lại</button>
+              <button id="btn-re-light-candles" class="lux-btn-ghost">Thắp nến lại</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4.4: Little Secret (Couple Photo + Custom Cake in Front) -->
+    <div id="ch4-step-secret" class="ch4-stage">
+      <div class="secret-showcase glass-mint-card">
+        <header class="secret-header">
+          <p class="letter-eyebrow">BÍ MẬT NHỎ CUỐI CÙNG</p>
+          <h3 class="keepsake-heading">Khoảnh Khắc Tuổi 24 Của Hai Đứa Mình ❤️</h3>
+          <p class="secret-sub">Dù ở đâu, sinh nhật tuổi 24 của em vẫn luôn có chồng và chiếc bánh do chính tay em làm ở phía trước.</p>
+        </header>
+
+        <div class="secret-frame">
+          <img id="couple-secret-preview" src="assets/couple_table.jpg?v=3" alt="Ảnh kỷ niệm Chi & Thuận cùng chiếc bánh sinh nhật" />
+        </div>
+
+        <footer class="secret-actions">
+          <button id="btn-toggle-secret-cake" class="lux-btn-secondary">Ẩn / Hiện bánh trên bàn</button>
+          <button id="btn-save-secret-image" class="mint-cta-btn">
+            <span class="btn-shimmer"></span>
+            <span>Lưu Ảnh Kỷ Niệm Hai Đứa (.PNG)</span>
+            <span class="cta-star">✦</span>
+          </button>
+          <button id="btn-back-from-secret" class="lux-btn-ghost">← Quay lại</button>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="luxury-toast">
+    <span class="toast-icon">✦</span>
+    <span id="toast-msg">Thông báo</span>
+  </div>
+
+  <script src="app.js?v=15.0"></script>
+</body>
+</html>
